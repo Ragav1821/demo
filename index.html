@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Video Converter – Download Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: #30363d;
+      --accent: #2ea043;
+      --accent-hover: #3fb950;
+      --accent-glow: rgba(46,160,67,0.25);
+      --blue: #58a6ff;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --danger: #f85149;
+      --warning: #d29922;
+      --warning-bg: rgba(210,153,34,0.12);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Top Banner ── */
+    .edu-banner {
+      background: var(--warning-bg);
+      border-bottom: 1px solid var(--warning);
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--warning);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .edu-banner svg { flex-shrink: 0; }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo { font-weight: 800; font-size: 1.1rem; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .logo-icon { width: 28px; height: 28px; background: linear-gradient(135deg, var(--accent), #1f6feb); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-badge { background: var(--accent); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 10px; margin-left: 4px; vertical-align: middle; }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .product-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .badge { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+    .badge-free { background: rgba(88,166,255,.15); color: var(--blue); border: 1px solid rgba(88,166,255,.3); }
+    .badge-safe { background: rgba(46,160,67,.15); color: var(--accent); border: 1px solid rgba(46,160,67,.3); }
+    .badge-v { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+
+    h1 { font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    h1 span { background: linear-gradient(90deg, #58a6ff, #a371f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .subtitle { color: var(--muted); font-size: 1.05rem; margin-bottom: 28px; max-width: 560px; }
+
+    .stats { display: flex; gap: 32px; margin-bottom: 32px; }
+    .stat { text-align: center; }
+    .stat-val { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+    .stat-lbl { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+    .features li { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--muted); }
+    .features li::before { content: ''; width: 18px; height: 18px; border-radius: 50%; background: rgba(46,160,67,.15); border: 1.5px solid var(--accent); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .check { color: var(--accent); font-size: 0.7rem; font-weight: 700; }
+
+    /* ── Download Card ── */
+    .dl-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      position: sticky;
+      top: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    }
+
+    .dl-card-header { text-align: center; margin-bottom: 24px; }
+    .app-icon { width: 72px; height: 72px; background: linear-gradient(135deg, #1f6feb, #a371f7); border-radius: 18px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 20px rgba(31,111,235,.4); }
+    .dl-card-header h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+    .dl-card-header p { font-size: 0.8rem; color: var(--muted); }
+
+    .dl-info { display: flex; justify-content: space-between; margin-bottom: 20px; }
+    .dl-info-item { text-align: center; }
+    .dl-info-item .val { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .dl-info-item .lbl { font-size: 0.7rem; color: var(--muted); }
+
+    .btn-primary {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, box-shadow .2s, transform .1s;
+      box-shadow: 0 4px 16px var(--accent-glow);
+      margin-bottom: 12px;
+    }
+    .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 6px 24px var(--accent-glow); transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .dl-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+
+    .mirrors { border-top: 1px solid var(--border); padding-top: 16px; }
+    .mirrors-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
+    .mirror-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 14px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.82rem;
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: border-color .2s, background .2s;
+      cursor: pointer;
+    }
+    .mirror-btn:hover { border-color: var(--blue); background: rgba(88,166,255,.06); }
+    .mirror-flag { font-size: 0.75rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+
+    /* ── Release Notes ── */
+    .section { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+    .section h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+
+    .release-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; }
+    .release-card .rel-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .rel-tag { font-weight: 700; font-size: 0.9rem; }
+    .rel-date { font-size: 0.78rem; color: var(--muted); }
+    .rel-badge { font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 10px; background: rgba(46,160,67,.2); color: var(--accent); }
+    .release-card ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .release-card ul li { font-size: 0.85rem; color: var(--muted); padding-left: 14px; position: relative; }
+    .release-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-size: 0.75rem; }
+
+    /* ── Sys Requirements ── */
+    .req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .req-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+    .req-item .req-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+    .req-item .req-val { font-size: 0.88rem; font-weight: 600; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer .ft-links { display: flex; gap: 16px; }
+    footer .ft-links a { color: var(--muted); text-decoration: none; }
+    footer .ft-links a:hover { color: var(--text); }
+
+    /* ── EDU Disclaimer bottom ── */
+    .edu-footer {
+      background: rgba(210,153,34,.08);
+      border: 1px solid rgba(210,153,34,.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      font-size: 0.82rem;
+      color: var(--warning);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    @media(max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8rem; }
+      .stats { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Educational Banner -->
+<div class="edu-banner">
+  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+  ⚠ CYBERSECURITY DEMO ENVIRONMENT — This site is for testing browser security tools. No malicious software is distributed.
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="white"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>
+    </div>
+    VidConvert Pro
+  </div>
+  <div class="nav-links">
+    <a href="#">Features</a>
+    <a href="#">Changelog <span class="nav-badge">New</span></a>
+    <a href="#">Support</a>
+    <a href="#">Blog</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <!-- Left: Info -->
+  <div>
+    <div class="product-meta">
+      <span class="badge badge-free">FREE</span>
+      <span class="badge badge-safe">✓ Verified Safe</span>
+      <span class="badge badge-v">v4.2.1</span>
+    </div>
+
+    <h1>The <span>Best Free</span><br>Video Converter</h1>
+    <p class="subtitle">Convert, compress, and export videos in 300+ formats with hardware-accelerated encoding. No watermarks. No subscription.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-val">12M+</div><div class="stat-lbl">Downloads</div></div>
+      <div class="stat"><div class="stat-val">4.8★</div><div class="stat-lbl">Rating</div></div>
+      <div class="stat"><div class="stat-val">300+</div><div class="stat-lbl">Formats</div></div>
+    </div>
+
+    <ul class="features">
+      <li><span class="check">✓</span> Convert MP4, MKV, AVI, MOV, WebM and more</li>
+      <li><span class="check">✓</span> GPU-accelerated batch conversion</li>
+      <li><span class="check">✓</span> Built-in video trimmer & compressor</li>
+      <li><span class="check">✓</span> No watermark on output files</li>
+      <li><span class="check">✓</span> Works offline — no cloud upload</li>
+      <li><span class="check">✓</span> Ad-free and entirely free to use</li>
+    </ul>
+  </div>
+
+  <!-- Right: Download Card -->
+  <div class="dl-card">
+    <div class="dl-card-header">
+      <div class="app-icon">▶</div>
+      <h2>VidConvert Pro</h2>
+      <p>Version 4.2.1 — March 2026</p>
+    </div>
+
+    <div class="dl-info">
+      <div class="dl-info-item"><div class="val">48.3 MB</div><div class="lbl">File Size</div></div>
+      <div class="dl-info-item"><div class="val">Windows</div><div class="lbl">Platform</div></div>
+      <div class="dl-info-item"><div class="val">Free</div><div class="lbl">License</div></div>
+    </div>
+
+    <a id="btn-download" href="download.html" class="btn-primary">⬇ Download Now</a>
+    <p class="dl-note">
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm.75 4.75v3.5h3.5a.75.75 0 0 1 0 1.5h-3.5v3.5a.75.75 0 0 1-1.5 0v-3.5h-3.5a.75.75 0 0 1 0-1.5h3.5v-3.5a.75.75 0 0 1 1.5 0Z"/></svg>
+      Scanned by Windows Defender · setup.exe
+    </p>
+
+    <div class="mirrors">
+      <div class="mirrors-label">Mirror Download Links</div>
+      <a href="download.html" class="mirror-btn">
+        <span>🇺🇸 Mirror 1 — US East</span>
+        <span class="mirror-flag">CDN · Fast</span>
+      </a>
+      <a href="download.html" class="mirror-btn">
+        <span>🇪🇺 Mirror 2 — EU West</span>
+        <span class="mirror-flag">CDN</span>
+      </a>
+      <a href="download.html" class="mirror-btn">
+        <span>🇸🇬 Mirror 3 — Asia Pacific</span>
+        <span class="mirror-flag">CDN</span>
+      </a>
+      <a href="download.html" class="mirror-btn">
+        <span>🔗 Direct Link (GitHub)</span>
+        <span class="mirror-flag">Backup</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Release Notes -->
+<div class="section">
+  <h3>📋 Release Notes</h3>
+
+  <div class="release-card">
+    <div class="rel-header">
+      <span class="rel-tag">v4.2.1</span>
+      <span class="rel-date">March 10, 2026</span>
+      <span class="rel-badge">Latest</span>
+    </div>
+    <ul>
+      <li>Fixed audio desync on variable-framerate inputs</li>
+      <li>Improved AV1 encoder performance by 18%</li>
+      <li>Added support for HEVC 10-bit HDR output</li>
+      <li>Minor UI fixes on Windows 11</li>
+    </ul>
+  </div>
+
+  <div class="release-card">
+    <div class="rel-header">
+      <span class="rel-tag">v4.2.0</span>
+      <span class="rel-date">February 22, 2026</span>
+    </div>
+    <ul>
+      <li>Major redesign of the conversion queue panel</li>
+      <li>Added GPU auto-detection for Intel Arc GPUs</li>
+      <li>Subtitle stream copy now supported in batch mode</li>
+    </ul>
+  </div>
+
+  <div class="release-card">
+    <div class="rel-header">
+      <span class="rel-tag">v4.1.5</span>
+      <span class="rel-date">January 14, 2026</span>
+    </div>
+    <ul>
+      <li>Patched memory leak in long batch jobs</li>
+      <li>Added drag-and-drop from Windows Explorer</li>
+    </ul>
+  </div>
+</div>
+
+<!-- System Requirements -->
+<div class="section">
+  <h3>💻 System Requirements</h3>
+  <div class="req-grid">
+    <div class="req-item"><div class="req-label">OS</div><div class="req-val">Windows 10 / 11 (64-bit)</div></div>
+    <div class="req-item"><div class="req-label">Processor</div><div class="req-val">2.0 GHz dual-core</div></div>
+    <div class="req-item"><div class="req-label">RAM</div><div class="req-val">4 GB minimum</div></div>
+    <div class="req-item"><div class="req-label">Disk Space</div><div class="req-val">200 MB + output space</div></div>
+    <div class="req-item"><div class="req-label">GPU (optional)</div><div class="req-val">NVIDIA / AMD / Intel</div></div>
+    <div class="req-item"><div class="req-label">.NET Runtime</div><div class="req-val">6.0 or later</div></div>
+  </div>
+</div>
+
+<!-- Educational Disclaimer footer -->
+<div class="edu-footer">
+  <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" style="flex-shrink:0;margin-top:1px"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+  <div>
+    <strong>Educational Disclaimer</strong><br>
+    This website is a cybersecurity demonstration environment used for testing browser security tools and download-verification systems. No malicious software is distributed. The download file is a harmless plaintext placeholder. This page intentionally simulates the visual patterns of software distribution sites so that browser extensions and security scanners can be evaluated.
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <span>© 2026 VidConvert Pro · All rights reserved</span>
+  <div class="ft-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+    <a href="#">Contact</a>
+    <a href="#">Security</a>
+  </div>
+</footer>
+
+</body>
+</html>

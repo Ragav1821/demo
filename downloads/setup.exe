@@ -1,0 +1,26 @@
+===========================================================
+  CYBERSECURITY DEMONSTRATION FILE — HARMLESS PLACEHOLDER
+===========================================================
+
+This file simulates a software installer (setup.exe) for the
+purpose of testing browser security tools, download-verification
+systems, and browser extensions.
+
+  Simulated Product : VidConvert Pro v4.2.1
+  Simulated Size    : 48.3 MB
+  Simulated SHA-256 : a3f2c1e5b8d94701fe6c2a0b3d7e8f21c90b4512ef3d6789abcde12345678ff
+  Platform          : Windows 10 / 11 (64-bit)
+
+IMPORTANT NOTICE
+----------------
+This file does NOT contain any executable code, malicious
+payload, or installable software. It is a plain UTF-8 text
+file served with a .exe extension solely to allow security
+tools to detect and analyze suspicious download patterns.
+
+No software is installed if this file is opened.
+
+===========================================================
+  This demonstration site was created for educational and
+  cybersecurity-research purposes only.
+===========================================================
